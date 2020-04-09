@@ -26,11 +26,13 @@ const config=configs[app.get('env')];
 //creamos la variable para el sitio web
 app.locals.titulo = config.nombresitio;
 
-//muestra el año actual
+//muestra el año actual y generando la ruta
 app.use((req,res,next)=>{
     //crear fecha
     const fecha= new Date();
     res.locals.fechaActual=fecha.getFullYear();
+    //genera la ruta
+    res.locals.ruta=req.path;
     //console.log(res.locals);
     return next();
 
