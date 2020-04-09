@@ -4,7 +4,7 @@ exports.mostrarViajes = async (req,res)=>{
     // res.render('viajes',{pagina:'Proximos viajes'});
     const viajes = await Viaje.findAll()
     res.render('viajes',{
-        pagina:'Proximos Viajes Khervi ofrece',
+        pagina:'Proximos Viajes',
         viajes //object literal ---> viajes:viajes y queda
     })
  }
