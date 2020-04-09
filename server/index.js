@@ -1,10 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
-const path = require('path')
+const path = require('path');
 const configs = require('./config');
+const bodyParser= require('body-parser');
+//const db = require('../config/database');
 
 //configuracion de database conectada
-
 /*db.authenticate()
     .then(()=> console.log('db conectada...'))
     .catch(error=> console.log(error))*/
@@ -33,7 +34,11 @@ app.use((req,res,next)=>{
     //console.log(res.locals);
     return next();
 
-})
+});
+
+//ejecutamos el BODYPARSER
+app.use(bodyParser.urlencoded({extended:true}));
+
 //cargar las rutas
 app.use('/',routes());
 
